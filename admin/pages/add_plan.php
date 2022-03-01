@@ -81,7 +81,7 @@ $current_url = $dir . '?rows=' . $rows;
 
 /* View */
 ?>
-<a href="<?= $dir . '/../' ?>">Zurück zum Frontend</a>
+<a href="/Blockplan_Formular_Test/admin">Zurück zum Frontend</a>
 <form method="post" action="../../backend/validation/validate_add_plan.php?rows=<?= $rows ?>">
     <label for="plan_name">Name des Blockplans</label>
     <div data-tip="Bitte den Titel so einpflegen: Blockplan 2022/2023">
