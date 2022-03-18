@@ -34,6 +34,21 @@ function save_file($type, $mode, $data){
     }
 }
 
+/**
+ * Die Funktion liest die Dateien aus einem angegebenen Verzeichnis aus.
+ * Die Funktion nimmt insgesamt zwei Parameter:
+ * 
+ * parameter name: type
+ * parameter type: string
+ * parameter desc: Type bestimmt, ob es sich hier um ein Array für die Schulklassen oder für die Blockpläne handelt. 
+ * parameter options: Nimmt 'course' für Schulklassen oder 'plan' für Blockpläne
+ * 
+ * parameter name: filename
+ * parameter type: string
+ * parameter desc: Dies ist ein optionaler Parameter. Mit ihm kann eine bestimmte Datei ausgelesen werden.
+ * 
+ */
+
 function get_files($type, $filename = null){
     //%%PATH%%
     $path = __DIR__ . '/../jsons/' . $type . 's/';
@@ -52,6 +67,21 @@ function get_files($type, $filename = null){
     }
     return $contents;
 }
+
+/**
+ * Die Funktion löscht angelegte Dateien.
+ * Die Funktion nimmt insgesamt zwei Parameter:
+ * 
+ * parameter name: type
+ * parameter type: string
+ * parameter desc: Type bestimmt, ob es sich hier um ein Array für die Schulklassen oder für die Blockpläne handelt.
+ * parameter options: Nimmt 'course' für Schulklassen oder 'plan' für Blockpläne
+ * 
+ * parameter name: file
+ * parameter type: string
+ * parameter desc: Hier wird der Pfad zur zu löschenden Datei angegeben
+ * 
+ */
 
 function delete_file($type, $file) {
     $path = __DIR__ . '/../jsons/' . $type . 's/';

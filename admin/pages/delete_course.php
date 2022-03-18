@@ -1,5 +1,6 @@
 <?php 
 require_once '../../backend/functions/control.php';
+/* Das ist die Funktion zum Löschen eines Kurses */
 
 $id = $_GET['id'];
 delete_file('course', $id);

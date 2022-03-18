@@ -81,7 +81,8 @@ $current_url = $dir . '?rows=' . $rows;
 
 /* View */
 ?>
-<a href="/Blockplan_Formular_Test/adming">Zurück zum Frontend</a>
+<!-- Das ist das Template zum Erstellen eines Blockplans. -->
+<a href="/Blockplan_Formular_Test/admin">Zurück zum Frontend</a>
 <form method="post" action="../../backend/validation/validate_add_plan.php?rows=<?= $rows ?>">
     <label for="plan_name">Name des Blockplans</label>
     <div data-tip="Bitte den Titel so einpflegen: Blockplan 2022/2023">
@@ -172,6 +173,7 @@ $current_url = $dir . '?rows=' . $rows;
 
         //get the saved value function - return the value of "v" from localStorage. 
         function getSavedValue  (v){
+
             if (!localStorage.getItem(v)) {
                 return "";// You can change this to your defualt value. 
             }

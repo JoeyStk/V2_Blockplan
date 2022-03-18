@@ -16,6 +16,7 @@ foreach($plans as $plan) {
     <link href="../../frontend/css/styles.css" rel="stylesheet">
 </head>
 <body>
+<!-- Das Template zum Bearbeiten eines Blockplans -->
 <a href="../">Zurück</a>
 <form method="post" action="../../backend/validation/validate_edit_plan.php?rows=<?= $rows ?>">
     <label for="plan_name">Name des Blockplans</label>

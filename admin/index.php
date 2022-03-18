@@ -82,21 +82,20 @@
 
   </style>    
 
-
+<!-- In dieser Datei befindet sich das Template im Administrationsbereich.
+Hier werden die bestehenden Blocklpläne und Klassen angezeigt, mit der Option für beides weitere anzulegen. -->
   <section>
     <div class="top-tabs-container">
       <label for="main-tab-1">Blockpläne</label>
       <label for="main-tab-2">Klassen</label>
     </div>
 
-  <!-- Tab Container || für Blockpläne -->
     <input class="tab-radio" id="main-tab-1" name="main-group" type="radio" checked="checked"/>
     <div class="tab-content">
       <?php render_plans_tabs('short'); ?>
       <a href="pages/add_plan.php">Neuen Blockplan anlegen</a>
     </div>
 
-  <!-- Tab Container || für Klassen -->
     <input class="tab-radio" id="main-tab-2" name="main-group" type="radio"/>
     <div class="tab-content">
       <?php render_courses_table(); ?>

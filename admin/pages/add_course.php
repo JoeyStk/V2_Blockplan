@@ -1,3 +1,4 @@
+<!-- Das ist das Template zum Anlegen von Klassen -->
 <h1>Neue Klasse anlegen</h1>
 <div>
     <form method="post" action="../../backend/validation/validate_add_course.php">

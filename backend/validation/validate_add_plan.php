@@ -1,6 +1,10 @@
 <?php
 require '../functions/control.php';
 
+/** 
+ * Diese Funktion / Seite validiert neue Blockpläne
+ */
+
 $rows = $_GET['rows'];
 $id = explode('/', explode(' ',$_POST['plan_name'])[1])[0] . '_Blockplan';
 $data = array(

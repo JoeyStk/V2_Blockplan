@@ -1,6 +1,9 @@
 <?php 
 require_once 'control.php';
 
+/**
+ * Die Funktion zeigt die Liste der Klassen an
+ */
 function render_courses_table() {
     $courses = get_files('course');
     foreach ($courses as $course) {
@@ -11,6 +14,9 @@ function render_courses_table() {
     }
 }
 
+/**
+ * Die Funktion zeigt die Filter für den Blockplan an
+ */
 function render_plans_filter() { ?>
     <form method="get">
         <select name="course_filter">
@@ -36,6 +42,9 @@ function render_plans_filter() { ?>
     <?php
 }
 
+/**
+ * Die Funktion zeigt die Ergebnisse der Filter an
+ */
 function render_plans_filter_results() {
      
     $courses = get_files('course');
@@ -75,6 +84,17 @@ function render_plans_filter_results() {
 Zulässig für $mode: short | extend
 */
 
+/**
+ * Die Funktion zeigt die Tabs für die Blockpläne
+ * Die Funktion nimmt insgesamt einen Parameter:
+ *  
+ * parameter name: mode
+ * parameter type: string
+ * parameter desc: Mode bestimmt, ob es sich eine Kurzversion oder eine Langversion handelt.
+ * parameter options: Nimmt 'short' für neue Daten oder 'extended' für bearbeitende Daten. 
+ * 
+ */
+
 function render_plans_tabs($mode) {
     $plans = get_files('plan');
     for ($i = 0; $i < count($plans); $i++) { 
@@ -99,6 +119,16 @@ function render_plans_tabs($mode) {
         </div>
     <?php }
 }
+
+/**
+ * Die Funktion ist eine Hilfsfunktion, die die Langversion für den Blockplan erzeugt
+ * Die Funktion nimmt insgesamt einen Parameter:
+ *  
+ * parameter name: plan
+ * parameter type: Array
+ * parameter desc: der übergegebene Plan als Array
+ * 
+ */
 
 function render_extended_plan($plan) { 
     unset($plan['plan_name']);
@@ -168,37 +198,23 @@ function render_extended_plan($plan) {
                     </tr>
                     <?php
                     $plan[$i];
-                    var_dump($plan[$i]->it);
                 }
                 ?>
             </tbody>
-            <!-- <tfoot>
-                <tr>
-                    <th>Footer 1</th>
-                    <td>Footer 2</td>
-                    <td>Footer 3</td>
-                    <td>Footer 4</td>
-                    <td>Footer 5</td>
-                    <td>Footer 6</td>
-                    <td>Footer 7</td>
-                    <td>Footer 8</td>
-                    <td>Footer 9</td>
-                    <td>Footer 10</td>
-                    <td>Footer 11</td>
-                    <td>Footer 12</td>
-                    <td>Footer 13</td>
-                    <td>Footer 14</td>
-                    <td>Footer 15</td>
-                    <td>Footer 16</td>
-                    <td>Footer 17</td>
-                    <td>Footer 18</td>
-                    <td>Footer 19</td>
-                </tr>
-            </tfoot> -->
         </table>
     </div>
     <?php
 }
+
+/**
+ * Die Funktion ist eine Hilfsfunktion, die die Kurzversion für den Blockplan erzeugt
+ * Die Funktion nimmt insgesamt einen Parameter:
+ *  
+ * parameter name: plan
+ * parameter type: Array
+ * parameter desc: der übergegebene Plan als Array
+ * 
+ */
 
 function render_short_plan($plan) { ?>
     <div>

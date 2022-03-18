@@ -1,6 +1,9 @@
 <?php 
 require_once '../functions/control.php';
 
+/** 
+ * Diese Funktion / Seite bearbeitet Blockpläne
+ */
 
 $rows = $_GET['rows'];
 $id = explode('/', explode(' ',$_POST['plan_name'])[1])[0] . '_Blockplan';

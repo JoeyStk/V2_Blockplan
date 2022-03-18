@@ -1,6 +1,10 @@
 <?php 
 require_once '../functions.php';
 
+/** 
+ * Diese Funktion / Seite validiert neue Kurse
+ */
+
 $data = array(
     'course_id' => $_POST['course_name'],
     'course_name' => $_POST['course_name'],
