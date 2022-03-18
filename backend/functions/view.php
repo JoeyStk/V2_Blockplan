@@ -80,10 +80,6 @@ function render_plans_filter_results() {
     }
 }
 
-/* 
-Zulässig für $mode: short | extend
-*/
-
 /**
  * Die Funktion zeigt die Tabs für die Blockpläne
  * Die Funktion nimmt insgesamt einen Parameter:
