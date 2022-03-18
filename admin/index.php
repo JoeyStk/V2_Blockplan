@@ -21,7 +21,7 @@ Hier werden die bestehenden Blocklpläne und Klassen angezeigt, mit der Option f
 
     <input class="tab-radio" id="main-tab-1" name="main-group" type="radio" checked="checked"/>
     <div class="tab-content">
-      <?php render_plans_tabs('short'); ?>
+      <?php render_plans_tabs('short', 'admin'); ?>
       <a href="pages/add_plan.php">Neuen Blockplan anlegen</a>
     </div>
 

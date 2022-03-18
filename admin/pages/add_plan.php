@@ -28,10 +28,11 @@ $current_url = $dir . '?rows=' . $rows;
 <!-- Das ist das Template zum Erstellen eines Blockplans. -->
 <a href="/Blockplan_Formular_Test/admin">Zurück zum Frontend</a>
 <form method="post" action="../../backend/validation/validate_add_plan.php?rows=<?= $rows ?>">
-    <label for="plan_name">Name des Blockplans</label>
+    <span for="plan_name">Name des Blockplans</label>
     <div data-tip="Bitte den Titel so einpflegen: Blockplan 2022/2023">
         <input required id="plan_name" name="plan_name">
     </div>
+    <input type="checkbox" name="plan_status" checked> Den Blockplan online stellen
     <?php
     for ($row = 1; $row <= $rows; $row++) {
         ?>

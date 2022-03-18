@@ -21,6 +21,12 @@ body {
     letter-spacing: 1px;
 }
 
+a {
+    font-weight: bold;
+    color: var(--green);
+    text-decoration: none;
+}
+
 /* Layout */
 .row {
     display: flex;

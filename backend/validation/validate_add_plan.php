@@ -11,6 +11,7 @@ $data = array(
     'plan_name' => $_POST['plan_name'],
     'plan_id' => $id,
     'plan_rows' => $rows,
+    'plan_status' => $_POST['plan_status'],
 );
 
 for ($row = 1; $row <= $rows; $row++) {

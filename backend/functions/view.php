@@ -89,18 +89,31 @@ function render_plans_filter_results() {
  * parameter desc: Mode bestimmt, ob es sich eine Kurzversion oder eine Langversion handelt.
  * parameter options: Nimmt 'short' für neue Daten oder 'extended' für bearbeitende Daten. 
  * 
+ * parameter name: page
+ * parameter type: string
+ * parameter desc: Page gibt an, auf welcher Seite man sich befindet
+ * parameter options: Nimmt 'admin' für den Admin-Bereich oder 'user' für User-Bereich. 
+ * 
  */
 
-function render_plans_tabs($mode) {
+function render_plans_tabs($mode, $page) {
     $plans = get_files('plan');
     ?>
     <div class="row"> 
     <?php for ($i = 0; $i < count($plans); $i++) { 
         $plan = (array) json_decode($plans[$i]);
-        ?>
-        <div class="mr-2 sub-tabs-container">
-            <label for="sub-tab-<?= $i ?>"><?= $plan['plan_name'] ?></label>
-        </div>
+        if ($page == 'user') {
+            if (isset($plan['plan_status'])) {
+            ?>
+            <div class="mr-2 sub-tabs-container">
+                <label for="sub-tab-<?= $i ?>"><?= $plan['plan_name'] ?></label>
+            </div>
+            <?php } ?>
+        <?php }  else if($page == 'admin') { ?>
+            <div class="mr-2 sub-tabs-container">
+                <label for="sub-tab-<?= $i ?>"><?= $plan['plan_name'] ?></label>
+            </div>
+        <?php } ?>
     <?php } ?>
     </div>
     <?php
@@ -224,6 +237,7 @@ function render_short_plan($plan) { ?>
         <b>Name: </b> <?= $plan['plan_name']?>
         <b>ID: </b> <?= $plan['plan_id'] ?>
         <b>Zeilen: </b><?= $plan['plan_rows'] ?>
+        <b>Status: </b><?php if (isset($plan['plan_status'])) { echo 'online'; } else {echo 'offline';} ?>
         <a href="pages/edit_plan.php?id=<?= $plan['plan_id'] ?>">Bearbeiten</a>
         <a href="pages/delete_plan.php?id=<?= $plan['plan_id']?>">Löschen</a>
     </div>
@@ -245,17 +259,18 @@ function render_short_plan($plan) { ?>
                 unset($plan['plan_rows']);
                 foreach ($plan as $row) {
                     $row = (array) $row;
-                    $time = (array) $row['time'];
-                    ?>
-                    <tr>
-                        <td><?= $time['from'] ?></td>
-                        <td><?= $time['until'] ?></td>
-                        <td><?= $row['days'] ?></td>
-                        <td><?= $row['it'] ?></td>
-                        <td><?= $row['electro'] ?></td>
-                        <td><?= $row['comment'] ?></td>
-                        <td><?= $row['highlight'] ?></td>
-                    </tr>
+                    if (!empty($row)) {
+                        $time = (array) $row['time']; ?>
+                        <tr>
+                            <td><?= $time['from'] ?></td>
+                            <td><?= $time['until'] ?></td>
+                            <td><?= $row['days'] ?></td>
+                            <td><?= $row['it'] ?></td>
+                            <td><?= $row['electro'] ?></td>
+                            <td><?= $row['comment'] ?></td>
+                            <td><?= $row['highlight'] ?></td>
+                        </tr>
+                    <?php }?>
                 <?php } ?>
         </table>
     </div>

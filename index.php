@@ -32,7 +32,7 @@ $dir = __DIR__;
   <!-- Tab Container || für Klassen -->
         <input class="tab-radio" id="main-tab-plan" name="main-group" type="radio"/>
         <div class="tab-content">
-            <?php render_plans_tabs('extended'); ?>
+            <?php render_plans_tabs('extended', 'user'); ?>
         </div>
 
     </body>
