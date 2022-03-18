@@ -93,14 +93,21 @@ function render_plans_filter_results() {
 
 function render_plans_tabs($mode) {
     $plans = get_files('plan');
+    ?>
+    <div class="row"> 
+    <?php for ($i = 0; $i < count($plans); $i++) { 
+        $plan = (array) json_decode($plans[$i]);
+        ?>
+        <div class="mr-2 sub-tabs-container">
+            <label for="sub-tab-<?= $i ?>"><?= $plan['plan_name'] ?></label>
+        </div>
+    <?php } ?>
+    </div>
+    <?php
     for ($i = 0; $i < count($plans); $i++) { 
         $plan = (array) json_decode($plans[$i]);
         ?>
-    
-        <div class="sub-tabs-container">
-            <label for="sub-tab-<?= $i ?>"><?= $plan['plan_name'] ?></label>
-        </div>
-    
+       
         <input class="tab-radio" id="sub-tab-<?= $i ?>" name="sub-group" type="radio" checked="checked">
         <div class="sub-tab-content">
             <h1><?= $plan['plan_name'] ?></h1>
